@@ -2,6 +2,7 @@ function maybeNumeric(input) {
     if (/ /.test(input))
         return input.split(' ').map(maybeNumeric);
     return isNaN(input) ? input : Number(input);
+    if (x) { console.log("yes"); }
 }
 
 
