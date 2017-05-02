@@ -1,16 +1,15 @@
 ; get list from user
-(defun getList (arg)
-  (setq  curr 0 mylist () num (read-number "Enter list length: "))
-  (debug)
-  (interactive
-  (while (< curr num)
-    (push
-     (debug)
-     (read-number "Enter number: ")
-     mylist)))
-  (message "List is %S" arg))
+(defun my-read-numbers (prompt)
+  (let (result done)
+    (while (not done)
+      (let ((input (read-number prompt)))
+        (if (zerop input)
+            (setq done t)
+          (push input result))))
+    (nreverse result)))
 
-(getList 2)
+(my-read-numbers "> ")
+
 
 ; check if any items in the list add up to be 0
 ; loop through each item, checking to see if sum is 0
